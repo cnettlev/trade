@@ -1,0 +1,49 @@
+Overlays:
+- moving averages
+- Bollinger bands
+- Fibonacci lines
+
+Oscillators:
+- Stochastic oscillator
+- MACD
+- RSI
+
+
+1. On-Balance Volume (OBV)
+      Positive and negative flow of volume over time.
+2. Coherence between OBV and price: if they go on different directions then a "divergence" is happening (could soon reverse).
+3. Accumulation/distribution line (A/D)
+      Shows if the stocks close near its high.
+4. Coherence between A/D and price: trend might reverse, signaling "divergence".
+5. Average Directional Index (ADX)
+      Measures strength and momentum: ADX>40 -> a lot of directional strength
+        ADX<20 -> weak trend or non-trending
+
+      Using also DI+ and D-:
+	. ADX above 20 and DI+ above DI-: That's an uptrend.
+        . ADX above 20 and DI- above DI+: That's a downtrend.
+        . ADX below 20 is a weak trend or ranging period, often associated with the DI- and DI+ rapidly crisscrossing each other.
+6. Aroon indicator:
+       Two lines: Aroon-up, Aroon-down. A cross between them and staying in the borders imply a trend. Ex: Aroon-up hits 100 and stays relatively close to that level while the Aroon-down stays near zero, that is positive confirmation of an uptrend.
+7. Moving average convergence/divergence (MACD)
+       Two lines: signal and MACD, a cross indicates trend.
+---------------------------------------------------------
+8. Relative Strength Index (RSI)
+      RSI>70: asset overbought and could decline.
+      RSI<30: asset oversold and could rally.
+      Sometimes expects to rise over 70 and then drop before selling, drop below 30 and then rise back before buying.
+9. RSI divergence with price: trend is weakening and could soon reverse.
+10. RSI as support and resistance.
+      RSI>30 hitting 70 means uptrends.
+      RSI<70 and hitting 30 means downtrends.
+11. Stochastic oscillator
+      Checks if the price hits new highs and lows.
+      SO>80: overbought. If drop bak is short trade.
+      SO<20: oversold. If rises back is a buy signal.
+12. Schaff Trend Cycle (STC)
+      Similar to MACD but takes into consideration a cycle component.
+13. Bollinger bands
+      If the price moves outside the upper parameters it could be overbought. Moving below the lower band means oversold.
+14. Fibonacci retracement
+15. Ichimoku cloud
+16. Standard deviation
