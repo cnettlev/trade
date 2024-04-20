@@ -1,2 +1,8 @@
 .ipynb_checkpoints/
 __pycache__/
+unrelevant/
+venv/
+cronlog.txt
+.vscode/
+market-data/
+market-bkup/

@@ -12,41 +12,58 @@ from time import sleep
 from datetime import datetime
 from os import path
 import pandas as pd
+from marketList import markets
 
 from retreiveOptions import options
 
 k = KrakenAPI(API())
 
-# CRYPTO based markets
-markets = ['XRPUSD','BTCUSD', 'ETHUSD']
+# # CRYPTO based markets
+# markets = ['XRPUSD','BTCUSD', 'ETHUSD']
 
-# USD based markets
-markets += ['USDCHF', 'USDJPY', 'USDCAD']
+# # USD based markets
+# markets += ['USDCHF', 'USDJPY', 'USDCAD']
 
-# EUR based markets
-markets += ['EURUSD', 'EURCAD', 'EURJPY', 'EURCHF', 'EURGBP', 'EURAUD']
+# # EUR based markets
+# markets += ['EURUSD', 'EURCAD', 'EURJPY', 'EURCHF', 'EURGBP', 'EURAUD']
 
-# AUD based markets
-markets += ['AUDJPY', 'AUDUSD']
+# # AUD based markets
+# markets += ['AUDJPY', 'AUDUSD']
 
-# USDT based markets
-markets += ['USDTCAD','USDTEUR','USDTGBP','USDTJPY','USDTCHF','USDTAUD']
+# # USDT based markets
+# markets += ['USDTCAD','USDTEUR','USDTGBP','USDTJPY','USDTCHF','USDTAUD']
 
-# USDC based markets
-markets += ['USDCUSD','USDCEUR','USDCUSDT','USDCAUD','USDCGBP']
+# # USDC based markets
+# markets += ['USDCUSD','USDCEUR','USDCUSDT','USDCAUD','USDCGBP']
 
-# Other markets
-markets += ['GBPUSD']
+# # Other markets
+# markets += ['GBPUSD']
 
 getSince = { 'default': datetime(2020,1,1).timestamp() }
 
 for market in markets:
     marketFile = options.folder+market + '.csv'
+    print('Retreiving last record from'+marketFile+'...')
     if path.exists(marketFile):
+
+        # import os
+        # with open(marketFile, 'rb') as f:
+        #     try:  # catch OSError in case of a one line file 
+        #         f.seek(-2, os.SEEK_END)
+        #         while f.read(1) != b'\n':
+        #             f.seek(-2, os.SEEK_CUR)
+        #     except OSError:
+        #         f.seek(0)
+        #     last_line = f.readline().decode()
+# 
+        # print(last_line)
+
         df = pd.read_csv(marketFile)
         getSince[market] = df.iloc[-1].time
     else:
         getSince[market] = getSince['default']
+
+# exit(0)
         
 print(getSince)
 
@@ -56,6 +73,9 @@ print(getSince)
 # interval = {1, 5, 15, 30, 60, 240, 1440, 10080, 21600} [min]
 
 def extendCSV(df,fileName):
+    if path.exists(fileName) and options.forceNewLine:
+        with open(fileName, 'a') as f:
+            f.write('\n')    
     df.to_csv(fileName, mode='a', header=not path.exists(fileName))
 
 while True:    
